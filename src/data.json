@@ -1,0 +1,37 @@
+{
+  "boxes": {
+    "-KpOx5Y4AqRr3sB4Ybwj": {
+      "boxNumber": 1,
+      "notes": "Plastic Tub",
+      "contents": {
+        "-KsjWehQ--apjDBwSBCY": "-KsjWehQ--apjDBwSBCY",
+        "-Ksjv9T5uc5wP1BH2g7O": "-Ksjv9T5uc5wP1BH2g7O",
+        "-KsjwU_A01lZRcljDlOp": "-KsjwU_A01lZRcljDlOp"
+      }
+    },
+    "-KsjO4_W3W9Q2Z2UmuPr": {
+      "boxNumber": 2,
+      "contents": {
+        "-KvcwywxaxxIfsHR88wa": "-KvcwywxaxxIfsHR88wa"
+      }
+    }
+  },
+  "contents": {
+    "-KvcwywxaxxIfsHR88wa": {
+      "description": "Books",
+      "boxId": "-KsjO4_W3W9Q2Z2UmuPr"
+    },
+    "-KsjwU_A01lZRcljDlOp": {
+      "description": "Dishes",
+      "boxId": "-KpOx5Y4AqRr3sB4Ybwj"
+    },
+    "-Ksjv9T5uc5wP1BH2g7O": {
+      "description": "Dresses",
+      "boxId": "-KpOx5Y4AqRr3sB4Ybwj"
+    },
+    "-KsjWehQ--apjDBwSBCY": {
+      "description": "Jackets",
+      "boxId": "-KpOx5Y4AqRr3sB4Ybwj"
+    } 
+  }
+}
