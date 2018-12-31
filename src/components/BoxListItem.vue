@@ -10,19 +10,24 @@
       </v-card-title>
 
       <!-- <v-card-actions>
-        <v-btn flat color="orange">Share</v-btn>
+        <v-btn flat color="orange" @click.prevent="$refs.boxEditor.boxEditor = true">Edit</v-btn>
         <v-btn flat color="orange">Explore</v-btn>
       </v-card-actions> -->
+
+      <BoxEditor v-if="boxContents" ref="boxEditor" :box="box" :boxContents="boxContents" />
+
     </v-card>
   </v-flex>
 </template>
 
 <script>
 import ContentList from './ContentList'
+import BoxEditor from './BoxEditor'
 
 export default {
   components: {
-    ContentList
+    ContentList,
+    BoxEditor
   },
   props: {
     box: {

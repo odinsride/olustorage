@@ -1,5 +1,6 @@
 <template>
-  <v-dialog v-model="boxEditor" persistent max-width="500px">
+<div>
+    <v-dialog v-model="boxEditor" persistent max-width="500px">
     <v-card>
       <v-card-title color="primary">
         <span class="headline primary--text">Add Box</span>
@@ -55,6 +56,7 @@
       </v-card-actions>
     </v-card>
   </v-dialog>
+  </div>
 </template>
 
 <script>
@@ -65,9 +67,10 @@ export default {
     return {
       boxEditor: false,
       form: {
-        boxNumber: null,
-        notes: '',
-        contents: [{
+        boxNumber: this.box ? this.box.boxNumber : null,
+        notes: this.box ? this.box.notes : '',
+        contents: this.boxContents ? this.getContentsForUpdate()
+        : [{
           description: '',
           contentId: ''
         }]
@@ -78,6 +81,9 @@ export default {
   props: {
     box: {
       type: Object
+    },
+    boxContents: {
+      type: Array
     }
   },
 
@@ -99,6 +105,15 @@ export default {
 
     removeContentField: function () {
       this.form.contents.pop()
+    },
+
+    getContentsForUpdate () {  // revisit this
+      var contentsForUpdate = []
+      this.boxContents.forEach(boxContent => {
+        contentsForUpdate.push({description: boxContent.description, contentId: boxContent['.key']})
+      })
+      console.log(contentsForUpdate)
+      return contentsForUpdate
     },
 
     reset () {

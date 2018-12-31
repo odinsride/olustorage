@@ -1,6 +1,6 @@
 
 <template>
-  <v-container fluid>
+  <v-container v-if="boxes" fluid>
     <v-layout row wrap>
       <v-flex xs12 class="text-xs-center" mt-3>
         <v-flex xs12 sm6 md4 offset-sm3 offset-md4>
@@ -20,7 +20,7 @@
                   style="top: -15px"
                   class="elevation-5"
                   fab small
-                  @click="$refs.boxEditor.boxEditor = true"
+                  @click="$refs.boxCreate.boxEditor = true"
                 >
                   <v-icon>add</v-icon>
                 </v-btn>
@@ -29,7 +29,7 @@
             </v-text-field>   
         </v-flex>
         <v-flex xs12 sm6 md4 offset-md4>
-          <BoxEditor ref="boxEditor" />
+          <BoxEditor ref="boxCreate" />
         </v-flex>
       </v-flex>
     </v-layout>
