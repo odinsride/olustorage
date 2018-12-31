@@ -28,6 +28,6 @@ export default {
 
 <style scoped>
 .os-transparent {
-  background: transparent
+  background: transparent !important
 }
 </style>
