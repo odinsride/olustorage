@@ -133,10 +133,15 @@ export default {
     },
 
     create () {
+      // Filter out items that were added in the form but left blank
+      var contentsForCreate = this.form.contents.filter(content => {
+        return content.description !== ''
+      })
+
       this.createBox({
         boxNumber: parseInt(this.form.boxNumber),
         notes: this.form.notes,
-        contents: this.form.contents
+        contents: contentsForCreate
       })
 
       this.reset()

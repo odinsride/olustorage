@@ -1,7 +1,7 @@
 <template>
   <v-container fluid>
     <v-layout row wrap>
-      <v-flex xs12 class="text-xs-center" mt-5>
+      <v-flex xs12 class="text-xs-center primary--text" mt-5>
         <h1>Sign Up</h1>
       </v-flex>
       <v-flex xs12 sm4 offset-sm4 mt-3>
@@ -19,6 +19,8 @@
                 id="email"
                 type="email"
                 v-model="email"
+                prepend-icon="email"
+                outline
                 required></v-text-field>
             </v-flex>
             <v-flex>
@@ -28,6 +30,8 @@
                 id="password"
                 type="password"
                 v-model="password"
+                prepend-icon="lock"
+                outline
                 required></v-text-field>
             </v-flex>
             <v-flex>
@@ -38,11 +42,13 @@
                 type="password"
                 v-model="passwordConfirm"
                 :rules="[comparePasswords]"
+                prepend-icon="lock"
+                outline
                 required
                 ></v-text-field>
             </v-flex>
             <v-flex class="text-xs-center" mt-5>
-              <v-btn color="primary" type="submit" :disabled="loading">Sign Up</v-btn>
+              <v-btn color="secondary" type="submit" :disabled="loading">Sign Up</v-btn>
             </v-flex>
           </v-layout>
         </form>
