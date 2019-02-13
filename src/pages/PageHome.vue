@@ -26,8 +26,12 @@
                 </v-btn>
                 <span>Add Box</span>
               </v-tooltip>
-            </v-text-field>   
+            </v-text-field>
+            <v-flex v-if="searchString && getBox().length == 0" xs10 offset-xs1 md8 offset-md2 mt-5>
+              <BoxNotFound />
+            </v-flex>
         </v-flex>
+
         <v-flex xs12 sm6 md4 offset-md4>
           <BoxEditor ref="boxCreate" />
         </v-flex>
@@ -43,11 +47,13 @@
 import {mapActions} from 'vuex'
 import BoxList from '@/components/BoxList'
 import BoxEditor from '@/components/BoxEditor'
+import BoxNotFound from '@/components/BoxNotFound'
 
 export default {
   components: {
     BoxList,
-    BoxEditor
+    BoxEditor,
+    BoxNotFound
   },
 
   data () {
@@ -70,9 +76,10 @@ export default {
 
       // If searchString is an integer, search by box number,
       // otherwise, search by contents
-      if (Number.isInteger(parseInt(this.searchString))) {
+      var searchString = parseInt(this.searchString)
+      if (Number.isInteger(searchString)) {
         searchResults = Object.values(this.$store.state.boxes)
-          .filter(box => box.boxNumber === parseInt(this.searchString))
+          .filter(box => box.boxNumber === searchString)
       } else {
         // Get a list of boxIds where the contents were found
         contentsBoxIds = this.getContentsBoxIds()
